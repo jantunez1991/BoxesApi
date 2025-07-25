@@ -24,3 +24,22 @@ El sistema valida la estructura del lead y verifica contra una API externa si el
    ```bash
    git clone https://github.com/jantunez1991/BoxesApi.git
    cd BoxesApi
+   
+✅ Ejemplo de Request
+
+{
+    "PlaceId": 2,
+    "AppointmentAt": "2025-08-01T10:00:00Z",
+    "ServiceType": "cambio_aceite",
+    "Contact": {
+        "Name": "José Antúnez",
+        "Email": "jose@example.com",
+        "Phone": "+5491112345678"
+    },
+    "Vehicle": {
+        "Make": "Toyota",
+        "Model": "Corolla",
+        "Year": 2020,
+        "LicensePlate": "ABC123"
+    }
+}
