@@ -1,3 +1,4 @@
+using BoxesApi.Infrastructure;
 using BoxesApi.Models;
 using BoxesApi.Services;
 using BoxesApi.Validators;
@@ -15,12 +16,8 @@ builder.Services.AddSwaggerGen();
 // FluentValidation
 builder.Services.AddScoped<IValidator<Lead>, LeadValidator>();
 
-// HttpClient con autenticación básica
-builder.Services.AddHttpClient<IWorkshopService, WorkshopService>(client =>
-{
-    var authToken = Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes("max@tecnom.com.ar:b0x3sApp"));
-    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authToken);
-});
+builder.Services.AddWorkshopHttpClient();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
